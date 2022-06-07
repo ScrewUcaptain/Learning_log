@@ -19,5 +19,7 @@ def topic(request, topic_id=1):
     context = {"topic":topic,
                'entries': entries}
     return render(request,'learning_logs/topic.html',context)   
+
+def new_topic(request)
  
 
