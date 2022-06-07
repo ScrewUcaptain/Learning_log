@@ -20,6 +20,7 @@ def topic(request, topic_id=1):
                'entries': entries}
     return render(request,'learning_logs/topic.html',context)   
 
-def new_topic(request)
+# def new_topic(request):
+    
  
 
