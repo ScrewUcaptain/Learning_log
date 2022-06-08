@@ -3,18 +3,28 @@
 <h2>Topic : {{topic}}</h2>
 
 <p>Entries for this topic : </p>
+
 <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+
+
 <ul>
-    {% for entry in entries %} {{entry.date_added|date:'M d, Y H:i'}}
+    
+{% for entry in entries %}
+	<br>
+<h5 style="text-decoration : underline">{{entry.date_added|date:'M d, Y H:i'}}</h5>
+
+
     <li>
-        {{entry.text|linebreaks }} <br></li>
+        {{entry.text|linebreaks }}</li>
+    <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit entry</a>
+
+    <br>
 
     {% empty %}
     <li>No entry found.</li>
 
     {% endfor %}
+
 </ul>
-
-
-
+  
 {% endblock %}
