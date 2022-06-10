@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     # My apps.*
     'learning_logs',
     "users",
+    
+    #Third party apps.
+    'bootstrap4',
+    'bootstrap5',
 
     # Default Django apps
     'django.contrib.admin',
@@ -131,3 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #My settings
 LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'learning_logs:index'
