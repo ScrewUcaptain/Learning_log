@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w!(9w9=k!=ef8nmhj326or)qw(emj5*b9w6r#9)r%^u3)ni79)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -138,5 +140,11 @@ LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'learning_logs:index'
 
 #Heroku settings.
+import os
 import django_heroku
 django_heroku.settings(locals())
+
+if os.environ.get("DEBUG") == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
